@@ -1,0 +1,19 @@
+{
+    "packageDirectories": [
+        {
+            "path": "force-app",
+            "default": true,
+            "package": "ctm-sf-theme",
+            "versionName": "ver 0.1",
+            "versionNumber": "1.0.0.NEXT"
+        }
+    ],
+    "name": "ctm-theme",
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "54.0",
+    "packageAliases": {
+        "ctm-sf-theme": "0Ho96000000000VCAQ",
+        "ctm-sf-theme@1.0.0-1": "04t960000000RpJAAU"
+    }
+}
