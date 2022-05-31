@@ -21,6 +21,7 @@ jobs:
     
     - name: Populate auth file
       shell: bash
+
       run: 'echo ${{secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt'
     
     - name: Authenticate Dev Hub
