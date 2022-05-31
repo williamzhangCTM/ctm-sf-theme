@@ -4,7 +4,7 @@
             "path": "force-app",
             "default": true,
             "package": "ctm-sf-theme",
-            "versionName": "ver 0.1",
+            "versionName": "ver 1.0",
             "versionNumber": "1.0.0.NEXT"
         }
     ],
@@ -14,6 +14,7 @@
     "sourceApiVersion": "54.0",
     "packageAliases": {
         "ctm-sf-theme": "0Ho96000000000VCAQ",
-        "ctm-sf-theme@1.0.0-1": "04t960000000RpJAAU"
+        "ctm-sf-theme@1.0.0-1": "04t960000000RpJAAU",
+        "ctm-sf-theme@1.0.0-2": "04t960000000RpTAAU"
     }
 }
