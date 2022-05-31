@@ -21,10 +21,10 @@ jobs:
     
     - name: Populate auth file
       shell: bash
-      run: 'echo ${{secrets.QA_SFDX_URL}} > ./QA_SFDX_URL.txt'
+      run: 'echo ${{secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt'
     
-    - name: Authenticate QA Sandbox
-      run: 'sfdx force:auth:sfdxurl:store -f ./QA_SFDX_URL.txt -a qa -d'
+    - name: Authenticate Dev Hub
+      run: 'sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d'
 
     - name: Create new version
       run: |
@@ -35,6 +35,13 @@ jobs:
     - name: Check code coverage
       run: |
         test $(sfdx force:package:version:report -p "$version_id" --json | jq .result.HasPassedCodeCoverageCheck) = 'true'
+
+    - name: Populate AQ sandbox auth file
+      shell: bash
+      run: 'echo ${{secrets.QA_SFDX_URL}} > ./QA_SFDX_URL.txt'
+    
+    - name: Authenticate QA Sandbox
+      run: 'sfdx force:auth:sfdxurl:store -f ./QA_SFDX_URL.txt -a qa -d'
     
     - name: Install new version in QA Sandbox
       run: |
