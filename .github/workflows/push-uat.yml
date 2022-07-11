@@ -38,5 +38,6 @@ jobs:
     - name: Authenticate UAT Sandbox
       run: 'sfdx force:auth:sfdxurl:store -f ./UAT_SFDX_URL.txt -a uat -d'
     
-    - name: Install new version in UAT Sandbox
+    - name: Install new version in Dev Hub
       run: |
+        sfdx force:package:install -p "$version_id" -u devhub --wait 10 --publishwait 10
