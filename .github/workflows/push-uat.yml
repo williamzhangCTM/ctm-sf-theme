@@ -40,4 +40,3 @@ jobs:
     
     - name: Install new version in UAT Sandbox
       run: |
-        sfdx force:package:install -p "$version_id" -u uat --wait 10 --publishwait 10
