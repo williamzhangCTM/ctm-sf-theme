@@ -2,7 +2,7 @@ name: Create pre-release version
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ qa ]
 
 jobs:
   pre_release:
