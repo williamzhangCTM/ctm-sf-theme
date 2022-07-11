@@ -1,8 +1,8 @@
-name: Pull Request to Develop
+name: Pull Request to QA
 
 on:
   pull_request:
-    branches: [ develop ]
+    branches: [ qa ]
     
 jobs:
   validate_pull_request:
