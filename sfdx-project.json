@@ -5,8 +5,8 @@
             "default": true,
             "package": "ctm-sf-theme",
             "versionName": "ver 1.0",
-            "versionNumber": "1.0.0.NEXT"
-        }
+            "versionNumber": "1.2.0.NEXT"
+
     ],
     "name": "ctm-theme",
     "namespace": "",
@@ -15,6 +15,17 @@
     "packageAliases": {
         "ctm-sf-theme": "0Ho96000000000VCAQ",
         "ctm-sf-theme@1.0.0-1": "04t960000000RpJAAU",
-        "ctm-sf-theme@1.0.0-2": "04t960000000RpTAAU"
+        "ctm-sf-theme@1.0.0-2": "04t960000000RpTAAU",
+        "ctm-sf-theme@1.0.0-4": "04t960000000RswAAE",
+        "ctm-sf-theme@1.0.0-5": "04t960000000Rt1AAE",
+        "ctm-sf-theme@1.0.0-6": "04t960000000Rt6AAE",
+        "ctm-sf-theme@1.0.0-7": "04t960000000RtBAAU",
+        "ctm-sf-theme@1.0.0-8": "04t960000000RtGAAU",
+        "ctm-sf-theme@1.0.0-9": "04t960000000RtLAAU",
+        "ctm-sf-theme@1.0.0-10": "04t960000000RtQAAU",
+        "ctm-sf-theme@1.0.0-11": "04t960000000RtVAAU",
+        "ctm-sf-theme@1.0.0-12": "04t960000000RtaAAE",
+        "ctm-sf-theme@1.1.0-1": "04t960000000RtfAAE",
+        "ctm-sf-theme@1.1.0-2": "04t960000000RtkAAE"
     }
 }
