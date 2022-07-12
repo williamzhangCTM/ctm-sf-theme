@@ -40,4 +40,4 @@ jobs:
     
     - name: Install new version in UAT
       run: |
-        sfdx force:package:install -p "$version_id" -u devhub --wait 10 --publishwait 10
+        sfdx force:package:install -p "$version_id" -u uat --wait 10 --publishwait 10
