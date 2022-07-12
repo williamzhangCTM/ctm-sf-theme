@@ -6,7 +6,7 @@
             "package": "ctm-sf-theme",
             "versionName": "ver 1.0",
             "versionNumber": "1.2.0.NEXT"
-
+        }
     ],
     "name": "ctm-theme",
     "namespace": "",
@@ -26,6 +26,7 @@
         "ctm-sf-theme@1.0.0-11": "04t960000000RtVAAU",
         "ctm-sf-theme@1.0.0-12": "04t960000000RtaAAE",
         "ctm-sf-theme@1.1.0-1": "04t960000000RtfAAE",
-        "ctm-sf-theme@1.1.0-2": "04t960000000RtkAAE"
+        "ctm-sf-theme@1.1.0-2": "04t960000000RtkAAE",
+        "ctm-sf-theme@1.2.0-1": "04t960000000RtpAAE"
     }
 }
