@@ -18,19 +18,7 @@ jobs:
         mkdir sfdx-cli
         tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
         ./sfdx-cli/install
-    
-    - name: Populate auth file
-      shell: bash
-      run: 'echo ${{secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt'
-    
-    - name: Authenticate Dev Hub
-      run: 'sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d'
-
-    - name: Promote latest version
-      run: |
-        version_id=$(grep -o "04t[[:alnum:]]\{15\}" sfdx-project.json | tail -n1)
-        sfdx force:package:version:promote -p "$version_id" --noprompt
-
+        
     - name: Populate UAT sandbox auth file
       shell: bash
       run: 'echo ${{secrets.UAT_SFDX_URL}} > ./UAT_SFDX_URL.txt'
@@ -40,4 +28,5 @@ jobs:
     
     - name: Install new version in UAT
       run: |
+        version_id=$(grep -o "04t[[:alnum:]]\{15\}" sfdx-project.json | tail -n1)
         sfdx force:package:install -p "$version_id" -u uat --wait 10 --publishwait 10
