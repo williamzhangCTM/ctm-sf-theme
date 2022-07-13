@@ -36,16 +36,16 @@ jobs:
       run: |
         test $(sfdx force:package:version:report -p "$version_id" --json | jq .result.HasPassedCodeCoverageCheck) = 'true'
 
-    - name: Populate UAT sandbox auth file
+    - name: Populate QA sandbox auth file
       shell: bash
-      run: 'echo ${{secrets.UAT_SFDX_URL}} > ./UAT_SFDX_URL.txt'
+      run: 'echo ${{secrets.QA_SFDX_URL}} > ./QA_SFDX_URL.txt'
     
-    - name: Authenticate UAT Sandbox
-      run: 'sfdx force:auth:sfdxurl:store -f ./UAT_SFDX_URL.txt -a uat -d'
+    - name: Authenticate QA Sandbox
+      run: 'sfdx force:auth:sfdxurl:store -f ./QA_SFDX_URL.txt -a qa -d'
     
-    - name: Install new version in UAT
+    - name: Install new version in QA Sandbox
       run: |
-        sfdx force:package:install -p "$version_id" -u uat --wait 10 --publishwait 10
+        sfdx force:package:install -p "$version_id" -u qa --wait 10 --publishwait 10
     
     - name: Store new version id
       run: |
