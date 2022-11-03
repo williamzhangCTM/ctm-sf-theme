@@ -1,0 +1,43 @@
+name: Install in UAT Sandbox
+
+on:
+  push:
+    branches: [ uat ]
+
+jobs:
+  pre_release:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Salesforce CLI
+      run: |
+        wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
+        mkdir sfdx-cli
+        tar xJf sfdx-linux-amd64.tar.xz -C sfdx-cli --strip-components 1
+        ./sfdx-cli/install
+    
+    - name: Populate auth file
+      shell: bash
+      run: 'echo ${{secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt'
+    
+    - name: Authenticate Dev Hub
+      run: 'sfdx force:auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d'
+
+    - name: Promote latest version
+      run: |
+        version_id=$(grep -o "04t[[:alnum:]]\{15\}" sfdx-project.json | tail -n1)
+        sfdx force:package:version:promote -p "$version_id" --noprompt
+
+    - name: Populate UAT sandbox auth file
+      shell: bash
+      run: 'echo ${{secrets.UAT_SFDX_URL}} > ./UAT_SFDX_URL.txt'
+    
+    - name: Authenticate UAT Sandbox
+      run: 'sfdx force:auth:sfdxurl:store -f ./UAT_SFDX_URL.txt -a uat -d'
+    
+    - name: Install new version in UAT
+      run: |
+        sfdx force:package:install -p "$version_id" -u uat --wait 10 --publishwait 10
